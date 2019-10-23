@@ -31,9 +31,12 @@ const CountryListItem = props => {
 
 const Result = ({ countriesToDisplay, setDetailedCountry, setUsingFilter }) => {
   const numOfCountries = countriesToDisplay.length;
-  if (numOfCountries > 10)
+
+  if (numOfCountries > 10) {
     return <div>Too many matches, specify another filter</div>;
-  else if (numOfCountries > 1) {
+  }
+
+  if (numOfCountries > 1) {
     return (
       <div>
         {countriesToDisplay.map(country => (
@@ -46,11 +49,17 @@ const Result = ({ countriesToDisplay, setDetailedCountry, setUsingFilter }) => {
         ))}
       </div>
     );
-  } else if (numOfCountries === 1) {
+  }
+
+  if (numOfCountries === 1) {
     return <CountryDetail country={countriesToDisplay[0]} />;
-  } else if (numOfCountries === 0) {
+  }
+
+  if (numOfCountries === 0) {
     return <div>No country found, specify another filter</div>;
-  } else return <div>Result will be shown here</div>;
+  }
+
+  return <div>Result will be shown here</div>;
 };
 
 export default Result;
